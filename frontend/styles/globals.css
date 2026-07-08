@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-sand text-ink font-body antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+/* Number-plate style badge — a nod to Pakistani vehicle registration plates */
+.plate-badge {
+  @apply inline-flex items-center gap-1 rounded-[4px] border-2 border-ink/80 bg-white px-2 py-0.5 text-xs font-bold tracking-wide text-ink;
+  font-family: var(--font-sora);
+  box-shadow: 1px 1px 0 rgba(20, 33, 27, 0.5);
+}
+
+.lane-divider {
+  height: 3px;
+  @apply bg-lane-dash;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand px-5 py-2.5 font-semibold text-white transition hover:bg-brand-dark active:scale-[0.98];
+}
+
+.btn-amber {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-amber px-5 py-2.5 font-semibold text-ink transition hover:bg-amber-dark active:scale-[0.98];
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-ink/15 bg-white px-5 py-2.5 font-semibold text-ink transition hover:border-brand hover:text-brand;
+}
+
+.input-field {
+  @apply w-full rounded-lg border border-ink/15 bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
+}
+
+.card {
+  @apply rounded-xl border border-ink/10 bg-white shadow-sm transition hover:shadow-md;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-ink/20;
+}
