@@ -99,7 +99,7 @@ export default function PostAd() {
               </select>
             </Field>
             <Field label="Model">
-              <input required className="input-field" placeholder="e.g. Civic" value={form.model} onChange={(e) => update("model", e.target.value)} />
+          <input required className="input-field" placeholder={form.category==="truck"?"e.g. JAC N350":form.category==="bus"?"e.g. ZK6128":form.category==="tractor"?"e.g. MF-385":form.category==="machinery"?"e.g. 320D":form.category==="parts"?"e.g. 2NZ Engine":"e.g. Civic"} value={form.model} onChange={(e)=>update("model",e.target.value)} />
             </Field>
             <Field label="Year">
               <input required type="number" min="1970" max={new Date().getFullYear() + 1} className="input-field" value={form.year} onChange={(e) => update("year", e.target.value)} />
