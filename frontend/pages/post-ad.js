@@ -70,7 +70,7 @@ export default function PostAd() {
   return (
     <Layout title="Post an Ad">
       <div className="mx-auto max-w-3xl px-4 py-10 md:px-6">
-        <h1 className="font-display text-2xl font-bold">Post Your {form.category === "car" ? "Car" : "Bike"} Ad</h1>
+        <h1 className="font-display text-2xl font-bold">Post Your {form.category==="truck"?"Truck":form.category==="bus"?"Bus":form.category==="tractor"?"Tractor":form.category==="machinery"?"Heavy Machinery":form.category==="parts"?"Spare Parts":form.category==="car"?"Car":"Bike"} Ad</h1>
         <p className="mt-1 text-sm text-slate-muted">Fill in accurate details — your ad will be reviewed before going live.</p>
 
         <form onSubmit={handleSubmit} className="card mt-6 space-y-5 p-6">
