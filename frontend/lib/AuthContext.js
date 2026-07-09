@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
       .eq("id", authUser.id)
       .single();
     if (error) {
-      console.error("Failed to load profile:", error.message);
+      console.error("PROFILE ERROR:", error); console.log("PROFILE DATA:", data);
       return null;
     }
     return mapProfile(data);
