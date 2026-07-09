@@ -98,10 +98,14 @@ export default function Home({ featuredCars, featuredBikes, latestAds }) {
         <h2 className="font-display text-2xl font-bold">Browse by Category</h2>
         <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
           {[
-            { label: "Cars", href: "/search?category=car", emoji: "🚗" },
-            { label: "Bikes", href: "/search?category=bike", emoji: "🏍️" },
-            { label: "Featured", href: "/search?featured=true", emoji: "★" },
-            { label: "All Listings", href: "/search", emoji: "📋" },
+        { label: "Cars", href: "/search?category=car", emoji: "🚗" },
+        { label: "Bikes", href: "/search?category=bike", emoji: "🏍️" },
+        { label: "Trucks", href: "/search?category=truck", emoji: "🚚" },
+        { label: "Buses", href: "/search?category=bus", emoji: "🚌" },
+        { label: "Tractors", href: "/search?category=tractor", emoji: "🚜" },
+        { label: "Heavy Machinery", href: "/search?category=machinery", emoji: "🏗️" },
+        { label: "Spare Parts", href: "/search?category=parts", emoji: "⚙️" },
+        { label: "All Listings", href: "/search", emoji: "📋" },
           ].map((c) => (
             <Link key={c.label} href={c.href} className="card flex flex-col items-center gap-2 px-4 py-8 text-center">
               <span className="text-3xl">{c.emoji}</span>
