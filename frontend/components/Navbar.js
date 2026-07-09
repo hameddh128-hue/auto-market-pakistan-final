@@ -33,7 +33,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-3 md:flex">
           <Link href="/post-ad" className="btn-amber !px-4 !py-2 text-sm">
-            <FiPlusCircle /> Post an Ad
+            <FiPlusCircle /> Sell Now
           </Link>
           {user ? (
             <div className="group relative">
@@ -73,7 +73,7 @@ export default function Navbar() {
             <Link href="/search?category=car" onClick={() => setOpen(false)}>Cars</Link>
             <Link href="/search?category=bike" onClick={() => setOpen(false)}>Bikes</Link>
             <Link href="/search" onClick={() => setOpen(false)}>All Listings</Link>
-            <Link href="/post-ad" onClick={() => setOpen(false)} className="btn-amber w-full">Post an Ad</Link>
+            <Link href="/post-ad" onClick={() => setOpen(false)} className="btn-amber w-full">Sell Now</Link>
             {user ? (
               <>
                 <Link href="/dashboard" onClick={() => setOpen(false)}>My Ads</Link>

@@ -51,7 +51,7 @@ useEffect(() => {
         <div className="relative mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24">
           <span className="plate-badge bg-amber text-ink border-white mb-5">ESTD. AUTO MARKET • PK</span>
           <h1 className="max-w-2xl font-display text-4xl font-extrabold leading-tight text-white md:text-6xl">
-            Buy & Sell <span className="text-amber-400">{currentWord}</span>
+            Buy & Sell <span className="text-amber-400 inline-block animate-pulse">{currentWord}</span>
           </h1>
           <p className="mt-4 max-w-xl text-base text-white/70 md:text-lg">
             Thousands of verified listings in Karachi, Lahore, Islamabad and beyond. Post your ad free and connect with buyers instantly on WhatsApp.
@@ -170,8 +170,8 @@ useEffect(() => {
       <section className="mx-auto my-12 max-w-7xl px-4 md:px-6">
         <div className="flex flex-col items-center justify-between gap-6 rounded-2xl bg-brand px-8 py-10 text-center md:flex-row md:text-left">
           <div>
-            <h3 className="font-display text-2xl font-bold text-white">Got a car or bike to sell?</h3>
-            <p className="mt-1 text-white/80">List it free in minutes and reach thousands of buyers across Pakistan.</p>
+            <h3 className="font-display text-2xl font-bold text-white">Ready to Sell Your Vehicle?</h3>
+            <p className="mt-1 text-white/80">List your vehicle, machinery or spare parts and reach thousands of buyers.</p>
           </div>
           <Link href="/post-ad" className="btn-amber shrink-0">Post Your Ad Now</Link>
         </div>

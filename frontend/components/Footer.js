@@ -25,7 +25,7 @@ export default function Footer() {
         <div>
           <h4 className="mb-3 text-sm font-semibold text-white">Account</h4>
           <ul className="space-y-2 text-sm text-white/60">
-            <li><Link href="/post-ad">Post an Ad</Link></li>
+            <li><Link href="/post-ad">Sell Now</Link></li>
             <li><Link href="/auth/login">Login</Link></li>
             <li><Link href="/auth/register">Register</Link></li>
           </ul>
