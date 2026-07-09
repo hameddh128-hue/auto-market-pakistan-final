@@ -87,7 +87,7 @@ export default function PostAd() {
               </select>
             </Field>
             <Field label="Ad Title">
-              <input required className="input-field" placeholder="e.g. 2020 Honda Civic Oriel" value={form.title} onChange={(e) => update("title", e.target.value)} />
+          <input required className="input-field" placeholder={form.category==="truck"?"e.g. Dongfeng 10 Wheeler":form.category==="bus"?"e.g. Yutong 40 Seater":form.category==="tractor"?"e.g. Massey Ferguson MF-385":form.category==="machinery"?"e.g. Caterpillar Excavator":form.category==="parts"?"e.g. Toyota Corolla Engine":"e.g. 2020 Honda Civic"} value={form.title} onChange={(e)=>update("title",e.target.value)} />
             </Field>
           </div>
 
