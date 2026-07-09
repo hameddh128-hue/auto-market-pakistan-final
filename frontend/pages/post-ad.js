@@ -7,6 +7,11 @@ import toast from "react-hot-toast";
 import { FiUploadCloud, FiX } from "react-icons/fi";
 
 const BRANDS = ["Toyota", "Honda", "Suzuki", "Kia", "Hyundai", "Changan", "MG", "Yamaha", "Atlas Honda", "United", "Other"];
+const TRUCK_BRANDS = ["Hino","Isuzu","FAW","JAC","Dongfeng","Other"];
+const BUS_BRANDS = ["Hino","Yutong","Daewoo","FAW","Other"];
+const TRACTOR_BRANDS = ["Massey Ferguson","New Holland","Fiat","Other"];
+const MACHINE_BRANDS = ["Caterpillar","Komatsu","JCB","Hitachi","Other"];
+const PARTS_BRANDS = ["General","Engine","Tyres","Battery","Other"];
 const CITIES = ["Karachi", "Lahore", "Islamabad", "Rawalpindi", "Faisalabad", "Multan", "Peshawar", "Quetta", "Sialkot", "Gujranwala"];
 
 export default function PostAd() {
@@ -90,7 +95,7 @@ export default function PostAd() {
             <Field label="Brand">
               <select required className="input-field" value={form.brand} onChange={(e) => update("brand", e.target.value)}>
                 <option value="">Select Brand</option>
-                {BRANDS.map((b) => <option key={b} value={b}>{b}</option>)}
+{(form.category==="truck"?TRUCK_BRANDS:form.category==="bus"?BUS_BRANDS:form.category==="tractor"?TRACTOR_BRANDS:form.category==="machinery"?MACHINE_BRANDS:form.category==="parts"?PARTS_BRANDS:BRANDS).map((b)=> <option key={b} value={b}>{b}</option>)}
               </select>
             </Field>
             <Field label="Model">
