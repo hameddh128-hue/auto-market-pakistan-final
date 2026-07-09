@@ -31,6 +31,11 @@ export default function FilterSidebar({ filters, setFilters, onApply }) {
         <select className="input-field" value={local.category || ""} onChange={(e) => update("category", e.target.value)}>
           <option value="">All</option>
           <option value="car">Cars</option>
+<option value="truck">Trucks</option>
+<option value="bus">Buses</option>
+<option value="tractor">Tractors</option>
+<option value="machinery">Heavy Machinery</option>
+<option value="parts">Spare Parts</option>
           <option value="bike">Bikes</option>
         </select>
       </div>
