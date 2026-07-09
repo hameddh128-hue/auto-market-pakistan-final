@@ -73,6 +73,11 @@ export default function PostAd() {
             <Field label="Category">
               <select className="input-field" value={form.category} onChange={(e) => update("category", e.target.value)}>
                 <option value="car">Car</option>
+<option value="truck">Truck</option>
+<option value="bus">Bus</option>
+<option value="tractor">Tractor</option>
+<option value="machinery">Heavy Machinery</option>
+<option value="parts">Spare Parts</option>
                 <option value="bike">Bike</option>
               </select>
             </Field>
