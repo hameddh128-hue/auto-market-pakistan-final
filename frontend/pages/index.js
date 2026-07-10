@@ -51,7 +51,7 @@ useEffect(() => {
         <div className="relative mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24">
           <span className="plate-badge bg-amber text-ink border-white mb-5">ESTD. AUTO MARKET • PK</span>
           <h1 className="max-w-4xl font-display text-3xl font-extrabold leading-tight text-white md:text-5xl">
-            Buy & Sell <span className="text-amber-400 inline-block animate-pulse">{currentWord}</span>
+            <span>Buy & Sell</span><br /><span className="text-amber-400 inline-block animate-pulse">{currentWord}</span>
           </h1>
           <p className="mt-4 max-w-xl text-base text-white/70 md:text-lg">
             Thousands of verified listings in Karachi, Lahore, Islamabad and beyond. Post your ad free and connect with buyers instantly on WhatsApp.
