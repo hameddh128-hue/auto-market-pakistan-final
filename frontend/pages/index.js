@@ -71,6 +71,11 @@ useEffect(() => {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/search?category=car" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Cars</Link>
             <Link href="/search?category=bike" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Bikes</Link>
+<Link href="/search?category=truck" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Trucks</Link>
+<Link href="/search?category=bus" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Buses</Link>
+<Link href="/search?category=tractor" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Tractors</Link>
+<Link href="/search?category=machine" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Heavy Machinery</Link>
+<Link href="/search?category=parts" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Spare Parts</Link>
             <Link href="/post-ad" className="rounded-full border border-amber bg-amber/10 px-4 py-1.5 text-sm text-amber hover:bg-amber hover:text-ink">+ Post Free Ad</Link>
           </div>
         </div>
