@@ -42,7 +42,6 @@ export default function Navbar() {
               </button>
               <div className="invisible absolute right-0 z-10 mt-1 w-48 rounded-lg border border-ink/10 bg-white py-1 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
                 <Link href="/dashboard" className="block px-4 py-2 text-sm hover:bg-sand">My Ads</Link>
-<Link href="/my-shop" className="block px-4 py-2 text-sm hover:bg-sand">My Shop</Link>
                 <Link href="/favorites" className="block px-4 py-2 text-sm hover:bg-sand">Favorites</Link>
                 {user.role === "admin" && (
                   <Link href="/admin" className="block px-4 py-2 text-sm hover:bg-sand">Admin Panel</Link>
@@ -78,7 +77,6 @@ export default function Navbar() {
             {user ? (
               <>
                 <Link href="/dashboard" onClick={() => setOpen(false)}>My Ads</Link>
-<Link href="/my-shop" onClick={() => setOpen(false)}>My Shop</Link>
                 <Link href="/favorites" onClick={() => setOpen(false)}>Favorites</Link>
                 {user.role === "admin" && <Link href="/admin" onClick={() => setOpen(false)}>Admin Panel</Link>}
                 <button onClick={() => { logout(); setOpen(false); router.push("/"); }} className="text-left text-red-600">Logout</button>
