@@ -1,0 +1,1 @@
+grep NEXT_PUBLIC_SUPABASE_URL .env.local
