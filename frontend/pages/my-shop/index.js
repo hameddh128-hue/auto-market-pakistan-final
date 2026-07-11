@@ -55,6 +55,10 @@ export default function MyShopPage() {
             >
               View Shop
             </Link>
+
+<Link href="/my-shop/edit" className="btn-outline inline-block mt-4 ml-3">
+  Edit Shop
+</Link>
           </div>
         )}
       </div>
