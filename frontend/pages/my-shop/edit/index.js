@@ -21,8 +21,9 @@ export default function EditShop() {
   }, []);
 
   async function loadShop() {
-    const shop = await getMyShop();
-
+const user = JSON.parse(localStorage.getItem("user"));
+if (!user) return;
+const shop = await getMyShop(user.id);
     if (!shop) {
       alert("No shop found.");
       router.push("/my-shop/create");
