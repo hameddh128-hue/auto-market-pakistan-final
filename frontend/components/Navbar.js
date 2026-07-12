@@ -38,7 +38,7 @@ export default function Navbar() {
           {user ? (
             <div className="group relative">
               <button className="flex items-center gap-2 rounded-lg border border-ink/15 px-3 py-2 text-sm font-medium">
-                <FiUser /> {user.name?.split(" ")[0]}
+                <FiUser />{user?.name?.trim()?.split(" ")[0] || "User"}
               </button>
               <div className="invisible absolute right-0 z-10 mt-1 w-48 rounded-lg border border-ink/10 bg-white py-1 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
                 <Link href="/dashboard" className="block px-4 py-2 text-sm hover:bg-sand">My Ads</Link>
