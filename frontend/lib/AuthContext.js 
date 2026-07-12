@@ -97,7 +97,7 @@ export function AuthProvider({ children }) {
       return { profile: null, needsConfirmation: true };
     }
 
-const profile = await fetchProfile(data.user);
+     const profile = await fetchProfile(data.user);
     setUser(profile);
     return { profile, needsConfirmation: false };
   };
