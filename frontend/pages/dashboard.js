@@ -81,7 +81,7 @@ export default function Dashboard() {
                   <p className="text-xs text-slate-muted">{ad.city} • {ad.views} views</p>
                 </div>
                 <div className="flex shrink-0 gap-2">
-                  <Link href={`/ads/${ad.id}`} className="btn-outline !px-3 !py-2 text-xs">View</Link>
+                  <Link href={`/ads/${ad.id}`} className="btn-outline !px-3 !py-2 text-xs">View</Link><Link href={`/post-edit/${ad.id}`} className="btn-outline !px-3 !py-2 text-xs">Edit</Link>
                   <button onClick={() => handleDelete(ad.id)} className="flex items-center gap-1 rounded-lg border border-red-200 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50">
                     <FiTrash2 /> Delete
                   </button>
