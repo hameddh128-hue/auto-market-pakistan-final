@@ -51,7 +51,8 @@ useEffect(() => {
         mileage: ad.mileage || "",
         fuelType: ad.fuelType || "",
         transmission: ad.transmission || "",
-        whatsapp: ad.whatsapp || "",
+        category: ad.category || "car",
+    whatsapp: ad.whatsapp || "",
       });
 
       setLoadingAd(false);
