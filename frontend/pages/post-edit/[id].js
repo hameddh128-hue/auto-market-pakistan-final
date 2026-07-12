@@ -12,6 +12,8 @@ export default function EditAd() {
 
   const [loadingAd, setLoadingAd] = useState(true);
   const [saving, setSaving] = useState(false);
+const [images, setImages] = useState([]);
+const [uploading, setUploading] = useState(false);
 
   const [form, setForm] = useState({
     title: "",
@@ -54,7 +56,7 @@ useEffect(() => {
         category: ad.category || "car",
     whatsapp: ad.whatsapp || "",
       });
-
+setImages(ad.images || []);
       setLoadingAd(false);
     } catch (err) {
       toast.error("Failed to load ad");
@@ -157,7 +159,15 @@ return (
             onChange={(e) => update("description", e.target.value)}
           />
         </div>
-
+<div>
+  <label>Images</label>
+  <input
+    type="file"
+    multiple
+    accept="image/*"
+    onChange={(e) => setImages(Array.from(e.target.files))}
+  />
+</div>
         <button
           type="submit"
           disabled={saving}
