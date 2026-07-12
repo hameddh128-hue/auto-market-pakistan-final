@@ -78,7 +78,7 @@ const handleSubmit = async (e) => {
   try {
     setSaving(true);
 
-    await updateAd(id, form, [], user.id);
+    await updateAd(id, form, images, user.id);
 
     toast.success("Ad updated successfully");
     router.push("/dashboard");
