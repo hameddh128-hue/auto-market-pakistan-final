@@ -80,7 +80,7 @@ const handleSubmit = async (e) => {
     toast.success("Ad updated successfully");
     router.push("/dashboard");
   } catch (err) {
-    toast.error("Failed to update ad");
+    console.log(err); toast.error(err.message || JSON.stringify(err));
   } finally {
     setSaving(false);
   }
