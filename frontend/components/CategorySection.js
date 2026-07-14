@@ -30,11 +30,11 @@ export default function CategorySection() {
             href={item.href}
             className="flex flex-col items-center group"
           >
-            <div className="w-24 h-24 md:w-28 md:h-28 bg-white rounded-2xl border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:shadow-lg">
+            <div className="w-40 h-40 md:w-48 md:h-48 bg-white rounded-3xl border border-gray-200 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex items-center justify-center overflow-hidden">
               <img
                 src={item.image}
                 alt={item.label}
-                className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                className="w-32 h-32 md:w-36 md:h-36 object-contain"
               />
             </div>
 
