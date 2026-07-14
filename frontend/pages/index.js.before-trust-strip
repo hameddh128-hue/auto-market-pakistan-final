@@ -5,7 +5,6 @@ import { FiSearch, FiShield, FiZap, FiTrendingUp } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import HeroSection from "../components/home/HeroSection";
-import SearchSection from "../components/home/SearchSection";
 import { getAds } from "../lib/ads";
 
 export async function getServerSideProps() {
@@ -47,27 +46,51 @@ useEffect(() => {
   return (
     <Layout>
       <HeroSection />
-      <SearchSection />
       {/* HERO */}
       {/* TRUST STRIP */}
+      <section className="border-b border-ink/10 bg-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 md:grid-cols-3 md:px-6">
+          <div className="flex items-center gap-3">
+            <FiShield className="text-brand" size={28} />
+            <div>
+              <p className="font-semibold">Verified Listings</p>
+              <p className="text-sm text-slate-muted">Every ad reviewed before going live</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <FiZap className="text-brand" size={28} />
+            <div>
+              <p className="font-semibold">Direct WhatsApp Contact</p>
+              <p className="text-sm text-slate-muted">Message sellers instantly, no middleman</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <FiTrendingUp className="text-brand" size={28} />
+            <div>
+              <p className="font-semibold">Best Market Prices</p>
+              <p className="text-sm text-slate-muted">Compare across cities and dealers</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CATEGORIES */}
       <section className="mx-auto max-w-7xl px-4 py-12 md:px-6">
         <h2 className="font-display text-2xl font-bold">Browse by Category</h2>
         <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
           {[
-        { label: "Cars", href: "/search?category=car", emoji: "🚗", image: "/categories/cars.png" },
-        { label: "Bikes", href: "/search?category=bike", emoji: "🏍️", image: "/categories/bikes.png" },
+        { label: "Cars", href: "/search?category=car", emoji: "🚗" },
+        { label: "Bikes", href: "/search?category=bike", emoji: "🏍️" },
         { label: "Trucks", href: "/search?category=truck", emoji: "🚚" },
-        { label: "Buses", href: "/search?category=bus", emoji: "🚌", image: "/categories/buses.png" },
-        { label: "Tractors", href: "/search?category=tractor", emoji: "🚜", image: "/categories/tractors.png" },
-        { label: "Heavy Machinery", href: "/search?category=machinery", emoji: "🏗️", image: "/categories/machinery.png" },
-        { label: "Spare Parts", href: "/search?category=parts", emoji: "⚙️", image: "/categories/parts.png" },
-        { label: "All Listings", href: "/search", emoji: "📋", image: "/categories/cars.png" },
+        { label: "Buses", href: "/search?category=bus", emoji: "🚌" },
+        { label: "Tractors", href: "/search?category=tractor", emoji: "🚜" },
+        { label: "Heavy Machinery", href: "/search?category=machinery", emoji: "🏗️" },
+        { label: "Spare Parts", href: "/search?category=parts", emoji: "⚙️" },
+        { label: "All Listings", href: "/search", emoji: "📋" },
           ].map((c) => (
-            <Link key={c.label} href={c.href} className="card overflow-hidden p-4 text-center">
-              <img src={c.image || "/categories/cars.png"} alt={c.label} className="w-full h-36 object-cover rounded-xl" />
-              <div className="p-4 text-center"><span className="text-lg font-bold">{c.label}</span></div>
+            <Link key={c.label} href={c.href} className="card flex flex-col items-center gap-2 px-4 py-8 text-center">
+              <span className="text-3xl">{c.emoji}</span>
+              <span className="font-semibold">{c.label}</span>
             </Link>
           ))}
         </div>

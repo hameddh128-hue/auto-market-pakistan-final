@@ -1,0 +1,39 @@
+import Link from "next/link";
+
+const categories = [
+  { label: "Cars", href: "/search?category=car", image: "/categories/cars.png" },
+  { label: "Bikes", href: "/search?category=bike", image: "/categories/bikes.png" },
+  { label: "Trucks", href: "/search?category=truck", image: "/categories/trucks.png" },
+  { label: "Buses", href: "/search?category=bus", image: "/categories/buses.png" },
+  { label: "Tractors", href: "/search?category=tractor", image: "/categories/tractors.png" },
+  { label: "Heavy Machinery", href: "/search?category=machinery", image: "/categories/machinery.png" },
+  { label: "Spare Parts", href: "/search?category=parts", image: "/categories/parts.png" },
+];
+
+export default function CategorySection() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-10 md:px-6">
+      <h2 className="mb-8 text-3xl font-bold">Browse by Category</h2>
+
+      <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+        {categories.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            className="overflow-hidden rounded-2xl border bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <img
+              src={item.image}
+              alt={item.label}
+              className="h-40 w-full object-contain p-4"
+            />
+
+            <div className="pb-5 text-center">
+              <h3 className="text-lg font-semibold">{item.label}</h3>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}

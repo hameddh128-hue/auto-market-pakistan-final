@@ -1,0 +1,167 @@
+import Link from "next/link";
+import Layout from "../components/Layout";
+import AdCard from "../components/AdCard";
+import { FiSearch, FiShield, FiZap, FiTrendingUp } from "react-icons/fi";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import HeroSection from "../components/home/HeroSection";
+import SearchSection from "../components/home/SearchSection";
+import CategorySection from "../components/CategorySection";
+import { getAds } from "../lib/ads";
+
+export async function getServerSideProps() {
+  let featuredCars = [], featuredBikes = [], featuredTrucks = [], featuredBuses = [], featuredTractors = [], featuredMachinery = [], featuredParts = [], featuredCycles = [], featuredRickshaws = [], latestAds = [];
+  try {
+    const [carsRes,bikesRes,trucksRes,busesRes,tractorsRes,machineryRes,partsRes,cyclesRes,rickshawRes,latestRes] = await Promise.all([
+getAds({ category: "car", featured: true, limit: 4 }),
+getAds({ category: "bike", featured: true, limit: 4 }),
+getAds({ category: "truck", featured: true, limit: 4 }),
+getAds({ category: "bus", featured: true, limit: 4 }),
+getAds({ category: "tractor", featured: true, limit: 4 }),
+getAds({ category: "machinery", featured: true, limit: 4 }),
+getAds({ category: "parts", featured: true, limit: 4 }),
+getAds({ category: "cycle", featured: true, limit: 4 }),
+getAds({ category: "rickshaw", featured: true, limit: 4 }),
+getAds({ limit: 8 }),
+]);
+    featuredCars = carsRes.ads;
+featuredBikes = bikesRes.ads;
+featuredTrucks = trucksRes.ads;
+featuredBuses = busesRes.ads;
+featuredTractors = tractorsRes.ads;
+featuredMachinery = machineryRes.ads;
+featuredParts = partsRes.ads;
+featuredCycles = cyclesRes.ads;
+featuredRickshaws = rickshawRes.ads;
+latestAds = latestRes.ads;
+    featuredBikes = bikesRes.ads;
+    latestAds = latestRes.ads;
+  } catch (err) {
+    // Supabase may be briefly unreachable during build/dev — fail gracefully
+  }
+  return { props: { featuredCars, featuredBikes, featuredTrucks, featuredBuses, featuredTractors, featuredMachinery, featuredParts, featuredCycles, featuredRickshaws, latestAds } };
+}
+
+export default function Home({ featuredCars, featuredBikes, featuredTrucks, featuredBuses, featuredTractors, featuredMachinery, featuredParts, featuredCycles, featuredRickshaws, latestAds }) {
+  const router = useRouter();
+  const [keyword, setKeyword] = useState("");
+
+const words = ["Cars","Bikes","Trucks","Buses","Tractors","Heavy Machinery","Spare Parts"];
+const [currentWord, setCurrentWord] = useState(words[0]);
+useEffect(() => {
+  let i = 0;
+  const timer = setInterval(() => {
+    i = (i + 1) % words.length;
+    setCurrentWord(words[i]);
+  }, 2000);
+  return () => clearInterval(timer);
+}, []);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    router.push(`/search${keyword ? `?keyword=${encodeURIComponent(keyword)}` : ""}`);
+  };
+
+  return (
+    <Layout>
+      <HeroSection />
+      <SearchSection />
+      {/* HERO */}
+      {/* TRUST STRIP */}
+
+      {/* CATEGORIES */}
+      <CategorySection />
+
+      {/* FEATURED CARS */}
+      {featuredCars.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="font-display text-2xl font-bold">Featured Cars</h2>
+            <Link href="/search?category=car&featured=true" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
+          </div>
+          <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+            {featuredCars.map((ad) => <div className="min-w-\[260px\] snap-start"><AdCard key={ad.id} ad={ad} /></div>)}
+          </div>
+        </section>
+      )}
+
+      {/* FEATURED BIKES */}
+      {featuredBikes.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="font-display text-2xl font-bold">Featured Bikes</h2>
+            <Link href="/search?category=bike&featured=true" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
+          </div>
+          <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+            {featuredBikes.map((ad) => <div className="min-w-\[260px\] snap-start"><AdCard key={ad.id} ad={ad} /></div>)}
+          </div>
+        </section>
+      )}
+
+      {/* LATEST ADS */}
+      <section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="font-display text-2xl font-bold">Latest Ads</h2>
+          <Link href="/search" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
+        </div>
+        {latestAds.length > 0 ? (
+          <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+            {latestAds.map((ad) => <div className="min-w-\[260px\] snap-start"><AdCard key={ad.id} ad={ad} /></div>)}
+          </div>
+        ) : (
+          <p className="text-slate-muted">No ads yet — be the first to post one!</p>
+        )}
+      </section>
+
+      {/* CTA BANNER */}
+      <section className="mx-auto my-12 max-w-7xl px-4 md:px-6">
+        <div className="flex flex-col items-center justify-between gap-6 rounded-2xl bg-brand px-8 py-10 text-center md:flex-row md:text-left">
+          <div>
+            <h3 className="font-display text-2xl font-bold text-white">Ready to Sell Your Vehicle?</h3>
+            <p className="mt-1 text-white/80">List your vehicle, machinery or spare parts and reach thousands of buyers.</p>
+          </div>
+          <Link href="/post-ad" className="btn-amber shrink-0">Post Your Ad Now</Link>
+        </div>
+      </section>
+    </Layout>
+  );
+}
+
+{/* FEATURED TRUCKS */}
+{featuredTrucks.length > 0 && (
+<section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+<div className="mb-6 flex items-center justify-between">
+<h2 className="font-display text-2xl font-bold">Latest Trucks</h2>
+<Link href="/search?category=truck" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
+</div>
+<div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+{featuredTrucks.map(ad => <div className="min-w-[260px] snap-start"><AdCard key={ad.id} ad={ad} /></div>)}
+</div>
+</section>
+)}
+
+{/* FEATURED BUSES */}
+{featuredBuses.length > 0 && (
+<section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+<div className="mb-6 flex items-center justify-between">
+<h2 className="font-display text-2xl font-bold">Latest Buses</h2>
+<Link href="/search?category=bus" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
+</div>
+<div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+{featuredBuses.map(ad => <div className="min-w-[260px] snap-start"><AdCard key={ad.id} ad={ad} /></div>)}
+</div>
+</section>
+)}
+
+{/* FEATURED TRACTORS */}
+{featuredTractors.length > 0 && (
+<section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+<div className="mb-6 flex items-center justify-between">
+<h2 className="font-display text-2xl font-bold">Latest Tractors</h2>
+<Link href="/search?category=tractor" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
+</div>
+<div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+{featuredTractors.map(ad => <div className="min-w-[260px] snap-start"><AdCard key={ad.id} ad={ad} /></div>)}
+</div>
+</section>
+)}
+

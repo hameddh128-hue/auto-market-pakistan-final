@@ -1,0 +1,109 @@
+import Image from "next/image";
+
+export default function HeroSection() {
+  return (
+    <section className="relative overflow-hidden bg-[#0b1320]">
+
+      <div className="absolute inset-0">
+        <Image
+          src="/hero-car.png"
+          alt="Hero Background"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/55"></div>
+      </div>
+
+      <div className="relative z-10 mx-auto flex min-h-[520px] max-w-7xl items-center px-6 pt-14 pb-24">
+
+        <div className="w-full lg:w-1/2">
+
+          <span className="inline-flex items-center rounded-full bg-green-600 px-4 py-2 text-xs font-bold text-white">
+            🇵🇰 #1 Marketplace in Pakistan
+          </span>
+          <h1 className="mt-6 text-4xl font-extrabold leading-tight text-white md:text-6xl">
+            Find Your Perfect
+            <br />
+            Vehicle in Pakistan
+          </h1>
+
+          <p className="mt-6 max-w-md text-base leading-7 text-gray-200">
+            Buy and sell cars, bikes and more with trusted sellers near you.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+
+            <button className="rounded-xl bg-green-600 px-8 py-3 font-semibold text-white hover:bg-green-700 transition">
+              🚗 Browse Cars
+            </button>
+
+            <button className="rounded-xl bg-white px-8 py-3 font-semibold text-gray-900 hover:bg-gray-100 transition">
+              🏍 Browse Bikes
+            </button>
+
+          </div>
+
+        </div>
+
+        <div className="hidden lg:flex w-1/2 justify-end items-center">
+          <div className="relative h-[360px] w-[580px] overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+
+            <Image
+              src="/hero-car.png"
+              alt="Luxury Car"
+              fill
+              priority
+              className="object-cover"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div className="absolute -bottom-12 left-1/2 z-20 w-[95%] max-w-6xl -translate-x-1/2 rounded-3xl bg-white p-5 shadow-2xl">
+
+        <div className="grid gap-4 md:grid-cols-5">
+
+          <input
+            type="text"
+            placeholder="Search vehicles..."
+            className="rounded-xl border border-gray-200 px-4 py-3 focus:border-green-600 focus:outline-none"
+          />
+
+          <select className="rounded-xl border border-gray-200 px-4 py-3">
+            <option>Cars</option>
+            <option>Bikes</option>
+            <option>Trucks</option>
+            <option>Spare Parts</option>
+          </select>
+
+          <select className="rounded-xl border border-gray-200 px-4 py-3">
+            <option>All Cities</option>
+            <option>Karachi</option>
+            <option>Lahore</option>
+            <option>Islamabad</option>
+            <option>Peshawar</option>
+          </select>
+
+          <input
+            type="text"
+            placeholder="Max Price"
+            className="rounded-xl border border-gray-200 px-4 py-3 focus:border-green-600 focus:outline-none"
+          />
+
+          <button className="rounded-xl bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700">
+            Search
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+  );
+}

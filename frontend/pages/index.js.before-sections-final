@@ -6,10 +6,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import HeroSection from "../components/home/HeroSection";
 import SearchSection from "../components/home/SearchSection";
+import CategorySection from "../components/CategorySection";
 import { getAds } from "../lib/ads";
 
 export async function getServerSideProps() {
-  let featuredCars = [], featuredBikes = [], latestAds = [];
+  let featuredCars = [], featuredBikes = [], featuredTrucks = [], featuredBuses = [], featuredTractors = [], featuredMachinery = [], featuredParts = [], featuredCycles = [], featuredRickshaws = [], latestAds = [];
   try {
     const [carsRes, bikesRes, latestRes] = await Promise.all([
       getAds({ category: "car", featured: "true", limit: 4 }),
@@ -17,6 +18,15 @@ export async function getServerSideProps() {
       getAds({ limit: 8 }),
     ]);
     featuredCars = carsRes.ads;
+featuredBikes = bikesRes.ads;
+featuredTrucks = trucksRes.ads;
+featuredBuses = busesRes.ads;
+featuredTractors = tractorsRes.ads;
+featuredMachinery = machineryRes.ads;
+featuredParts = partsRes.ads;
+featuredCycles = cyclesRes.ads;
+featuredRickshaws = rickshawRes.ads;
+latestAds = latestRes.ads;
     featuredBikes = bikesRes.ads;
     latestAds = latestRes.ads;
   } catch (err) {
@@ -52,26 +62,7 @@ useEffect(() => {
       {/* TRUST STRIP */}
 
       {/* CATEGORIES */}
-      <section className="mx-auto max-w-7xl px-4 py-12 md:px-6">
-        <h2 className="font-display text-2xl font-bold">Browse by Category</h2>
-        <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {[
-        { label: "Cars", href: "/search?category=car", emoji: "🚗", image: "/categories/cars.png" },
-        { label: "Bikes", href: "/search?category=bike", emoji: "🏍️", image: "/categories/bikes.png" },
-        { label: "Trucks", href: "/search?category=truck", emoji: "🚚" },
-        { label: "Buses", href: "/search?category=bus", emoji: "🚌", image: "/categories/buses.png" },
-        { label: "Tractors", href: "/search?category=tractor", emoji: "🚜", image: "/categories/tractors.png" },
-        { label: "Heavy Machinery", href: "/search?category=machinery", emoji: "🏗️", image: "/categories/machinery.png" },
-        { label: "Spare Parts", href: "/search?category=parts", emoji: "⚙️", image: "/categories/parts.png" },
-        { label: "All Listings", href: "/search", emoji: "📋", image: "/categories/cars.png" },
-          ].map((c) => (
-            <Link key={c.label} href={c.href} className="card overflow-hidden p-4 text-center">
-              <img src={c.image || "/categories/cars.png"} alt={c.label} className="w-full h-36 object-cover rounded-xl" />
-              <div className="p-4 text-center"><span className="text-lg font-bold">{c.label}</span></div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <CategorySection />
 
       {/* FEATURED CARS */}
       {featuredCars.length > 0 && (
@@ -80,8 +71,8 @@ useEffect(() => {
             <h2 className="font-display text-2xl font-bold">Featured Cars</h2>
             <Link href="/search?category=car&featured=true" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
           </div>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {featuredCars.map((ad) => <AdCard key={ad.id} ad={ad} />)}
+          <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+            {featuredCars.map((ad) => <div className="min-w-\[260px\] snap-start"><AdCard key={ad.id} ad={ad} /></div>)}
           </div>
         </section>
       )}
@@ -93,8 +84,8 @@ useEffect(() => {
             <h2 className="font-display text-2xl font-bold">Featured Bikes</h2>
             <Link href="/search?category=bike&featured=true" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
           </div>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {featuredBikes.map((ad) => <AdCard key={ad.id} ad={ad} />)}
+          <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+            {featuredBikes.map((ad) => <div className="min-w-\[260px\] snap-start"><AdCard key={ad.id} ad={ad} /></div>)}
           </div>
         </section>
       )}
@@ -106,8 +97,8 @@ useEffect(() => {
           <Link href="/search" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
         </div>
         {latestAds.length > 0 ? (
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {latestAds.map((ad) => <AdCard key={ad.id} ad={ad} />)}
+          <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+            {latestAds.map((ad) => <div className="min-w-\[260px\] snap-start"><AdCard key={ad.id} ad={ad} /></div>)}
           </div>
         ) : (
           <p className="text-slate-muted">No ads yet — be the first to post one!</p>

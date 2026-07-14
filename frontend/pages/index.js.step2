@@ -56,18 +56,18 @@ useEffect(() => {
         <h2 className="font-display text-2xl font-bold">Browse by Category</h2>
         <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
           {[
-        { label: "Cars", href: "/search?category=car", emoji: "🚗", image: "/categories/cars.png" },
-        { label: "Bikes", href: "/search?category=bike", emoji: "🏍️", image: "/categories/bikes.png" },
+        { label: "Cars", href: "/search?category=car", emoji: "🚗" },
+        { label: "Bikes", href: "/search?category=bike", emoji: "🏍️" },
         { label: "Trucks", href: "/search?category=truck", emoji: "🚚" },
-        { label: "Buses", href: "/search?category=bus", emoji: "🚌", image: "/categories/buses.png" },
-        { label: "Tractors", href: "/search?category=tractor", emoji: "🚜", image: "/categories/tractors.png" },
-        { label: "Heavy Machinery", href: "/search?category=machinery", emoji: "🏗️", image: "/categories/machinery.png" },
-        { label: "Spare Parts", href: "/search?category=parts", emoji: "⚙️", image: "/categories/parts.png" },
-        { label: "All Listings", href: "/search", emoji: "📋", image: "/categories/cars.png" },
+        { label: "Buses", href: "/search?category=bus", emoji: "🚌" },
+        { label: "Tractors", href: "/search?category=tractor", emoji: "🚜" },
+        { label: "Heavy Machinery", href: "/search?category=machinery", emoji: "🏗️" },
+        { label: "Spare Parts", href: "/search?category=parts", emoji: "⚙️" },
+        { label: "All Listings", href: "/search", emoji: "📋" },
           ].map((c) => (
-            <Link key={c.label} href={c.href} className="card overflow-hidden p-4 text-center">
-              <img src={c.image || "/categories/cars.png"} alt={c.label} className="w-full h-36 object-cover rounded-xl" />
-              <div className="p-4 text-center"><span className="text-lg font-bold">{c.label}</span></div>
+            <Link key={c.label} href={c.href} className="card flex flex-col items-center gap-2 px-4 py-8 text-center">
+              <span className="text-3xl">{c.emoji}</span>
+              <span className="font-semibold">{c.label}</span>
             </Link>
           ))}
         </div>

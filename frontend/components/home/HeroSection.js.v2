@@ -1,0 +1,97 @@
+import Image from "next/image";
+
+export default function HeroSection() {
+  return (
+    <section className="relative h-[700px] overflow-hidden">
+
+      <Image
+        src="/hero-car.png"
+        alt="Hero Car"
+        fill
+        className="object-cover"
+        priority
+      />
+
+      <div className="absolute inset-0 bg-black/55"></div>
+
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6">
+
+        <div className="max-w-2xl">
+
+          <span className="rounded-full bg-green-600 px-4 py-2 text-sm font-semibold text-white">
+            🇵🇰 #1 Marketplace in Pakistan
+          </span>
+
+          <h1 className="mt-6 text-5xl font-extrabold leading-tight text-white md:text-7xl">
+            Find Your Perfect
+            <br />
+            Vehicle in Pakistan
+          </h1>
+
+          <p className="mt-6 max-w-xl text-lg text-gray-200">
+            Buy and Sell Cars, Bikes, Trucks and Spare Parts anywhere in Pakistan.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href="/search?category=car"
+              className="rounded-xl bg-green-600 px-7 py-3 font-semibold text-white transition hover:bg-green-700"
+            >
+              Browse Cars
+            </a>
+
+            <a
+              href="/search?category=bike"
+              className="rounded-xl bg-white px-7 py-3 font-semibold text-black transition hover:bg-gray-200"
+            >
+              Browse Bikes
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div className="absolute bottom-[-45px] left-1/2 z-20 w-[95%] max-w-6xl -translate-x-1/2 rounded-2xl bg-white p-5 shadow-2xl">
+
+        <div className="grid gap-4 md:grid-cols-5">
+
+          <input
+            type="text"
+            placeholder="Search cars, bikes..."
+            className="rounded-lg border p-3 outline-none focus:border-green-600"
+          />
+
+          <select className="rounded-lg border p-3">
+            <option>All Categories</option>
+            <option>Cars</option>
+            <option>Bikes</option>
+            <option>Trucks</option>
+            <option>Spare Parts</option>
+          </select>
+
+          <select className="rounded-lg border p-3">
+            <option>All Cities</option>
+            <option>Karachi</option>
+            <option>Lahore</option>
+            <option>Islamabad</option>
+            <option>Peshawar</option>
+          </select>
+
+          <input
+            type="text"
+            placeholder="Max Price"
+            className="rounded-lg border p-3 outline-none focus:border-green-600"
+          />
+
+          <button className="rounded-lg bg-green-600 p-3 font-semibold text-white hover:bg-green-700">
+            Search
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+  );
+}
