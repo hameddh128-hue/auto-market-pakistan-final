@@ -1,7 +1,17 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
 import AdCard from "../components/AdCard";
-import { FiSearch, FiShield, FiZap, FiTrendingUp } from "react-icons/fi";
+import {
+  FiSearch,
+  FiShield,
+  FiZap,
+  FiTrendingUp,
+  FiHeart,
+  FiUser,
+  FiMenu,
+  FiChevronDown,
+  FiMapPin
+} from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getAds } from "../lib/ads";

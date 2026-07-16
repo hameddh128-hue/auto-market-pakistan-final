@@ -1,4 +1,6 @@
 import Link from "next/link";
+import FloatingSearch from "../components/home/FloatingSearch";
+import HeroSection from "../components/home/HeroSection";
 import Layout from "../components/Layout";
 import AdCard from "../components/AdCard";
 import { FiSearch, FiShield, FiZap, FiTrendingUp } from "react-icons/fi";
@@ -44,70 +46,8 @@ useEffect(() => {
 
   return (
     <Layout>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-ink">
-        <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
-        <div className="lane-divider absolute bottom-0 left-0 right-0" />
-        <div className="relative mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24">
-          <span className="plate-badge bg-amber text-ink border-white mb-5">ESTD. AUTO MARKET • PK</span>
-          <h1 className="max-w-4xl font-display text-3xl font-extrabold leading-tight text-white md:text-5xl">
-            <span>Buy & Sell</span><br /><span className="text-amber-400 inline-block animate-pulse">{currentWord}</span>
-          </h1>
-          <p className="mt-4 max-w-xl text-base text-white/70 md:text-lg">
-            Thousands of verified listings in Karachi, Lahore, Islamabad and beyond. Post your ad free and connect with buyers instantly on WhatsApp.
-          </p>
-
-          <form onSubmit={handleSearch} className="mt-8 flex max-w-xl items-center gap-2 rounded-xl bg-white p-2 shadow-2xl">
-            <FiSearch className="ml-2 shrink-0 text-ink/40" size={20} />
-            <input
-              value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
-              placeholder="Search by brand, model, or city e.g. 'Honda Civic Lahore'"
-              className="w-full bg-transparent px-1 py-2 text-sm outline-none"
-            />
-            <button type="submit" className="btn-primary !px-5 !py-2.5 text-sm shrink-0">Search</button>
-          </form>
-
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/search?category=car" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Cars</Link>
-            <Link href="/search?category=bike" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Bikes</Link>
-<Link href="/search?category=truck" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Trucks</Link>
-<Link href="/search?category=bus" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Buses</Link>
-<Link href="/search?category=tractor" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Tractors</Link>
-<Link href="/search?category=machine" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Heavy Machinery</Link>
-<Link href="/search?category=parts" className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:border-amber hover:text-amber">Spare Parts</Link>
-            <Link href="/post-ad" className="rounded-full border border-amber bg-amber/10 px-4 py-1.5 text-sm text-amber hover:bg-amber hover:text-ink">+ Post Free Ad</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* TRUST STRIP */}
-      <section className="border-b border-ink/10 bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-8 md:grid-cols-3 md:px-6">
-          <div className="flex items-center gap-3">
-            <FiShield className="text-brand" size={28} />
-            <div>
-              <p className="font-semibold">Verified Listings</p>
-              <p className="text-sm text-slate-muted">Every ad reviewed before going live</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <FiZap className="text-brand" size={28} />
-            <div>
-              <p className="font-semibold">Direct WhatsApp Contact</p>
-              <p className="text-sm text-slate-muted">Message sellers instantly, no middleman</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <FiTrendingUp className="text-brand" size={28} />
-            <div>
-              <p className="font-semibold">Best Market Prices</p>
-              <p className="text-sm text-slate-muted">Compare across cities and dealers</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+        <HeroSection />
+        <FloatingSearch />
       {/* CATEGORIES */}
       <section className="mx-auto max-w-7xl px-4 py-12 md:px-6">
         <h2 className="font-display text-2xl font-bold">Browse by Category</h2>
