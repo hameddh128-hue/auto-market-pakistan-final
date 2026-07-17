@@ -1,0 +1,39 @@
+import Link from "next/link";
+
+const categories = [
+  { name: "Cars", icon: "🚗", href: "/search?category=car" },
+  { name: "Bikes", icon: "🏍️", href: "/search?category=bike" },
+  { name: "Trucks", icon: "🚚", href: "/search?category=truck" },
+  { name: "Buses", icon: "🚌", href: "/search?category=bus" },
+  { name: "Tractors", icon: "🚜", href: "/search?category=tractor" },
+  { name: "Spare Parts", icon: "⚙️", href: "/search?category=parts" },
+  { name: "Machinery", icon: "🏗️", href: "/search?category=machinery" },
+  { name: "Showrooms", icon: "🏢", href: "/search?category=showroom" },
+  { name: "Tyres", icon: "🛞", href: "/search?category=tyres" },
+  { name: "Batteries", icon: "🔋", href: "/search?category=batteries" },
+  { name: "Engine Oil", icon: "🛢️", href: "/search?category=oil" },
+  { name: "Accessories", icon: "🧰", href: "/search?category=accessories" },
+];
+
+export default function HomeCategories() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-6">
+      <h2 className="text-xl font-bold mb-4">Browse Categories</h2>
+
+      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+        {categories.map((item) => (
+          <Link
+            key={item.name}
+            href={item.href}
+            className="min-w-[90px] rounded-xl border bg-white p-3 shadow-sm flex flex-col items-center justify-center"
+          >
+            <div className="text-3xl">{item.icon}</div>
+            <div className="mt-2 text-xs text-center font-medium">
+              {item.name}
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}

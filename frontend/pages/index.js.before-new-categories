@@ -3,7 +3,6 @@ import FloatingSearch from "../components/home/FloatingSearch";
 import HeroSection from "../components/home/HeroSection";
 import Layout from "../components/Layout";
 import AdCard from "../components/AdCard";
-import CategorySection from "../components/CategorySection";
 import { FiSearch, FiShield, FiZap, FiTrendingUp } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -49,48 +48,28 @@ useEffect(() => {
     <Layout>
         <HeroSection />
         <FloatingSearch />
-{/* CATEGORIES */}
-<section className="mx-auto max-w-7xl px-3 py-6">
-  <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide snap-x snap-mandatory">
+      {/* CATEGORIES */}
+      <section className="mx-auto max-w-7xl px-4 py-12 md:px-6">
+        <h2 className="font-display text-2xl font-bold">Browse by Category</h2>
+        <div className="mt-6 flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+          {[
+        { label: "Cars", href: "/search?category=car", emoji: "🚗" },
+        { label: "Bikes", href: "/search?category=bike", emoji: "🏍️" },
+        { label: "Trucks", href: "/search?category=truck", emoji: "🚚" },
+        { label: "Buses", href: "/search?category=bus", emoji: "🚌" },
+        { label: "Tractors", href: "/search?category=tractor", emoji: "🚜" },
+        { label: "Heavy Machinery", href: "/search?category=machinery", emoji: "🏗️" },
+        { label: "Spare Parts", href: "/search?category=parts", emoji: "⚙️" },
+        { label: "All Listings", href: "/search", emoji: "📋" },
+          ].map((c) => (
+            <Link key={c.label} href={c.href} className="card min-w-[120px] flex-shrink-0 flex flex-col items-center justify-center gap-2 px-5 py-6 text-center snap-start">
+              <span className="text-3xl">{c.emoji}</span>
+              <span className="font-semibold">{c.label}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-    {[
-      {label:"Cars",href:"/search?category=car",emoji:"🚗"},
-      {label:"Bikes",href:"/search?category=bike",emoji:"🏍️"},
-      {label:"Trucks",href:"/search?category=truck",emoji:"🚚"},
-      {label:"Buses",href:"/search?category=bus",emoji:"🚌"},
-      {label:"Tractors",href:"/search?category=tractor",emoji:"🚜"},
-      {label:"Spare Parts",href:"/search?category=parts",emoji:"⚙️"},
-      {label:"Machinery",href:"/search?category=machinery",emoji:"🏗️"},
-      {label:"Showrooms",href:"/search?category=showroom",emoji:"🏪"},
-      {label:"Tyres",href:"/search?category=tyres",emoji:"🛞"},
-      {label:"Batteries",href:"/search?category=batteries",emoji:"🔋"},
-      {label:"Engine Oil",href:"/search?category=oil",emoji:"🛢️"},
-      {label:"Accessories",href:"/search?category=accessories",emoji:"🚘"},
-      {label:"Tools",href:"/search?category=tools",emoji:"🔧"},
-      {label:"Rims",href:"/search?category=rims",emoji:"🛞"},
-      {label:"Lights",href:"/search?category=lights",emoji:"💡"},
-      {label:"Heavy",href:"/search?category=heavy",emoji:"🚛"},
-      {label:"Vans",href:"/search?category=vans",emoji:"🚐"},
-      {label:"Boats",href:"/search?category=boats",emoji:"🚤"},
-      {label:"Services",href:"/search?category=services",emoji:"🛠️"},
-      {label:"Workshops",href:"/search?category=workshops",emoji:"🏭"},
-      {label:"Dealers",href:"/search?category=dealers",emoji:"🤝"},
-      {label:"All",href:"/search",emoji:"📋"},
-    ].map((c)=>(
-      <Link
-        key={c.label}
-        href={c.href}
-        className="min-w-[82px] rounded-xl border bg-white shadow-sm p-3 flex flex-col items-center justify-center hover:shadow-md snap-start"
-      >
-        <span className="text-4xl">{c.emoji}</span>
-        <span className="mt-2 text-xs font-semibold text-center">
-          {c.label}
-        </span>
-      </Link>
-    ))}
-
-  </div>
-</section>
       {/* FEATURED CARS */}
       {featuredCars.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
@@ -98,7 +77,7 @@ useEffect(() => {
             <h2 className="font-display text-2xl font-bold">Featured Cars</h2>
             <Link href="/search?category=car&featured=true" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
           </div>
-          <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory px-1">
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
             {featuredCars.map((ad) => <AdCard key={ad.id} ad={ad} />)}
           </div>
         </section>
@@ -111,7 +90,7 @@ useEffect(() => {
             <h2 className="font-display text-2xl font-bold">Featured Bikes</h2>
             <Link href="/search?category=bike&featured=true" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
           </div>
-          <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory px-1">
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
             {featuredBikes.map((ad) => <AdCard key={ad.id} ad={ad} />)}
           </div>
         </section>
@@ -124,8 +103,8 @@ useEffect(() => {
           <Link href="/search" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
         </div>
         {latestAds.length > 0 ? (
-          <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory px-2">
-            {latestAds.map((ad) => <div className="snap-start min-w-[300px] md:min-w-[340px]"><AdCard key={ad.id} ad={ad} /></div>)}
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+            {latestAds.map((ad) => <AdCard key={ad.id} ad={ad} />)}
           </div>
         ) : (
           <p className="text-slate-muted">No ads yet — be the first to post one!</p>

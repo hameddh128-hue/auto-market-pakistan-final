@@ -1,0 +1,54 @@
+      {/* FEATURED CARS */}
+      {featuredCars.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="font-display text-2xl font-bold">Featured Cars</h2>
+            <Link href="/search?category=car&featured=true" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
+          </div>
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+            {featuredCars.map((ad) => <AdCard key={ad.id} ad={ad} />)}
+          </div>
+        </section>
+      )}
+
+      {/* FEATURED BIKES */}
+      {featuredBikes.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="font-display text-2xl font-bold">Featured Bikes</h2>
+            <Link href="/search?category=bike&featured=true" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
+          </div>
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+            {featuredBikes.map((ad) => <AdCard key={ad.id} ad={ad} />)}
+          </div>
+        </section>
+      )}
+
+      {/* LATEST ADS */}
+      <section className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="font-display text-2xl font-bold">Latest Ads</h2>
+          <Link href="/search" className="text-sm font-semibold text-brand hover:underline">View All →</Link>
+        </div>
+        {latestAds.length > 0 ? (
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+            {latestAds.map((ad) => <AdCard key={ad.id} ad={ad} />)}
+          </div>
+        ) : (
+          <p className="text-slate-muted">No ads yet — be the first to post one!</p>
+        )}
+      </section>
+
+      {/* CTA BANNER */}
+      <section className="mx-auto my-12 max-w-7xl px-4 md:px-6">
+        <div className="flex flex-col items-center justify-between gap-6 rounded-2xl bg-brand px-8 py-10 text-center md:flex-row md:text-left">
+          <div>
+            <h3 className="font-display text-2xl font-bold text-white">Ready to Sell Your Vehicle?</h3>
+            <p className="mt-1 text-white/80">List your vehicle, machinery or spare parts and reach thousands of buyers.</p>
+          </div>
+          <Link href="/post-ad" className="btn-amber shrink-0">Post Your Ad Now</Link>
+        </div>
+      </section>
+    </Layout>
+  );
+}

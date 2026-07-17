@@ -1,0 +1,42 @@
+{/* CATEGORIES */}
+<section className="mx-auto max-w-7xl px-3 py-6">
+  <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide snap-x snap-mandatory">
+
+    {[
+      {label:"Cars",href:"/search?category=car",emoji:"🚗"},
+      {label:"Bikes",href:"/search?category=bike",emoji:"🏍️"},
+      {label:"Trucks",href:"/search?category=truck",emoji:"🚚"},
+      {label:"Buses",href:"/search?category=bus",emoji:"🚌"},
+      {label:"Tractors",href:"/search?category=tractor",emoji:"🚜"},
+      {label:"Spare Parts",href:"/search?category=parts",emoji:"⚙️"},
+      {label:"Machinery",href:"/search?category=machinery",emoji:"🏗️"},
+      {label:"Showrooms",href:"/search?category=showroom",emoji:"🏪"},
+      {label:"Tyres",href:"/search?category=tyres",emoji:"🛞"},
+      {label:"Batteries",href:"/search?category=batteries",emoji:"🔋"},
+      {label:"Engine Oil",href:"/search?category=oil",emoji:"🛢️"},
+      {label:"Accessories",href:"/search?category=accessories",emoji:"🚘"},
+      {label:"Tools",href:"/search?category=tools",emoji:"🔧"},
+      {label:"Rims",href:"/search?category=rims",emoji:"🛞"},
+      {label:"Lights",href:"/search?category=lights",emoji:"💡"},
+      {label:"Heavy",href:"/search?category=heavy",emoji:"🚛"},
+      {label:"Vans",href:"/search?category=vans",emoji:"🚐"},
+      {label:"Boats",href:"/search?category=boats",emoji:"🚤"},
+      {label:"Services",href:"/search?category=services",emoji:"🛠️"},
+      {label:"Workshops",href:"/search?category=workshops",emoji:"🏭"},
+      {label:"Dealers",href:"/search?category=dealers",emoji:"🤝"},
+      {label:"All",href:"/search",emoji:"📋"},
+    ].map((c)=>(
+      <Link
+        key={c.label}
+        href={c.href}
+        className="min-w-[82px] rounded-xl border bg-white shadow-sm p-3 flex flex-col items-center justify-center hover:shadow-md snap-start"
+      >
+        <span className="text-4xl">{c.emoji}</span>
+        <span className="mt-2 text-xs font-semibold text-center">
+          {c.label}
+        </span>
+      </Link>
+    ))}
+
+  </div>
+</section>

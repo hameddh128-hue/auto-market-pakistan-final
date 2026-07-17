@@ -4,6 +4,7 @@ import HeroSection from "../components/home/HeroSection";
 import Layout from "../components/Layout";
 import AdCard from "../components/AdCard";
 import CategorySection from "../components/CategorySection";
+import DynamicCategories from "../components/home/DynamicCategories";
 import { FiSearch, FiShield, FiZap, FiTrendingUp } from "react-icons/fi";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -49,6 +50,7 @@ useEffect(() => {
     <Layout>
         <HeroSection />
         <FloatingSearch />
+      <DynamicCategories ads={latestAds} />
 {/* CATEGORIES */}
 <section className="mx-auto max-w-7xl px-3 py-6">
   <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-hide snap-x snap-mandatory">

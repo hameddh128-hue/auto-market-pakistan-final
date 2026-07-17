@@ -41,8 +41,8 @@ export default function AdCard({ ad, favorited, onFavoriteChange }) {
   };
 
   return (
-    <Link href={`/ads/${ad.id}`} className="card group relative block overflow-hidden">
-      <div className="relative h-48 w-full overflow-hidden bg-ink/5">
+    <Link href={`/ads/${ad.id}`} className="card group relative block overflow-hidden min-w-[300px] md:min-w-[340px] min-w-[220px] max-w-[220px] rounded-2xl border shadow-md hover:shadow-xl transition-all duration-300 bg-white">
+      <div className="relative h-56 w-full overflow-hidden bg-ink/5">
         <Image
           src={getImageUrl(ad.images?.[0])}
           alt={ad.title}
